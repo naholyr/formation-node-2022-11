@@ -1,6 +1,12 @@
-import { tpAsyncSync } from "../../tp-async/sync.js";
+import { tpAsyncPromise } from "../../tp-async/async-promise.js";
 
+/*
 export const tpAsyncHandler = (req, res) => {
-  const result = tpAsyncSync();
-  res.send(result);
+  tpAsyncPromise().then((response) => res.send(response));
+};
+*/
+
+export const tpAsyncHandler = async (req, res) => {
+  const result = await tpAsyncPromise();
+  return res.send(result);
 };

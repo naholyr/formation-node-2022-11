@@ -1,6 +1,8 @@
 // Request handler: usable in app.xxx(...) or in any router
-import { TpSyncAsync } from "../../tp-async/sync.js";
+import { tpAsyncPromise } from "../../tp-async/async-promise.js";
 
 export const tpAsyncHandler = (req, res) => {
-  res.send(TpSyncAsync());
+  tpAsyncPromise().then((result) => {
+    res.send(result);
+  });
 };
