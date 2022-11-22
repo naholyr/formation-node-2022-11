@@ -1,5 +1,3 @@
-import { checkUser } from "../../users.js";
-
 export const loginHandler = async (req, res) => {
   const { body } = req;
 

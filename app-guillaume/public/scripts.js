@@ -10,9 +10,20 @@
   //////////////////////////////
 
   const fetchLogin = async (username, password) => {
-    // TODO HTTP: POST /auth/login + { username, passwor } => token
-    throw new Error("Error");
-    return "fake token";
+    // TODO HTTP: POST /auth/login + { username, password } => token
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const body = await response.json();
+
+    if (body.error) {
+      throw new Error(body.error);
+    }
+
+    return body.token;
   };
 
   const fetchRegister = async (username, password) => {

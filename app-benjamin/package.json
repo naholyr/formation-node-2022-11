@@ -1,20 +1,26 @@
 {
-  "name": "app-benjamin",
+  "name": "app-nicolas",
   "version": "1.0.0",
-  "description": "test init",
-  "main": "index.js",
+  "description": "zuper chat",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "nodemon": "nodemon src/server.js",
-    "lint": "eslint src public",
+    "dev": "nodemon src/server.js",
+    "env": "env",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "env": "env"
+    "lint": "eslint src public"
   },
-  "author": "",
+  "author": "Benjamin",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "lodash": "^4.17.21"
+    "ioredis": "^5.2.4",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongodb": "^4.12.0",
+    "socket.io": "^4.5.3"
   },
   "devDependencies": {
     "eslint": "^8.28.0",
