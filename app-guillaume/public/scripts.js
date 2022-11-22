@@ -11,11 +11,23 @@
 
   const fetchLogin = async (username, password) => {
     // TODO HTTP: POST /auth/login + { username, passwor } => token
+    throw new Error("Error");
     return "fake token";
   };
 
   const fetchRegister = async (username, password) => {
-    // TODO HTTP: POST /auth/register + { username, password } => void
+    const response = await fetch("/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (response.status === 201) {
+      return;
+    }
+
+    const body = await response.json();
+    throw new Error(body.error);
   };
 
   const fetchCheck = async (token) => {
