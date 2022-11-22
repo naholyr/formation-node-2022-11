@@ -29,7 +29,21 @@ Contact : nicolas@chambrier.fr
 
 ### Le TP
 
-- Chat ?
+#### Express
+
+- GET /tp/async (promise puis async/await)
+- GET /tp/sync (blocking)
+- GET /tp/callback (callback)
+- GET /
+- GET /timeout (home avec un timeout)
+- POST /auth/login
+- GET|POST|... /auth/logout
+- GET /auth/profile (info du compte)
+- GET /chat (home du chat)
+
+#### Websocket
+
+TBD
 
 #### Commandes npm de l'application
 
