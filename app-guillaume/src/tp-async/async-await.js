@@ -50,5 +50,5 @@ export const tpAsyncAwaitHiddenConcurrency = async () => {
   const content2P = readFile("./src/tp-async/2.txt", "utf-8"); // 1s (T + 3)
   const content3P = readFile("./src/tp-async/3.txt", "utf-8"); // 3s (T + 6)
 
-  return (await content1) + (await content2) + (await content3); // 6s
+  return (await content1P) + (await content2P) + (await content3P); // 6s
 };

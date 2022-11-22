@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 
 /*
@@ -33,6 +32,9 @@ export const tpAsyncAwait = async () => {
 
   const contents = await Promise.all([content1P, content2P, content3P]); // 3s
 
+  // eslint-disable-next-line no-console
+  console.log(contents);
+
   return Buffer.concat(contents);
 };
 
@@ -49,5 +51,5 @@ export const tpAsyncAwaitHiddenConcurrency = async () => {
   const content2P = readFile("./src/tp-async/2.txt", "utf-8"); // 1s (T + 3)
   const content3P = readFile("./src/tp-async/3.txt", "utf-8"); // 3s (T + 6)
 
-  return (await content1) + (await content2) + (await content3); // 6s
+  return (await content1P) + (await content2P) + (await content3P); // 6s
 };

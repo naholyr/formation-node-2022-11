@@ -27,6 +27,32 @@ Contact : nicolas@chambrier.fr
 - Hosting Heroku & Mongodb: https://www.mongodb.com/developer/how-to/use-atlas-on-heroku/
 - https://socket.io/fr/docs/v4/adapter/
 
+### Packages
+
+#### Runtime
+
+- express
+  - body-parser
+- socket.io
+- ioredis
+- mongodb
+- jsonwebtoken
+
+#### Configuration
+
+- dotenv
+
+#### Tests
+
+- jest
+
+#### Outils de dev
+
+- nodemon
+- eslint
+- prettier
+- eslint-plugin-prettier
+
 ### Le TP
 
 #### Express
