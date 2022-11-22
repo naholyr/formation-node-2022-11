@@ -31,15 +31,18 @@ Contact : nicolas@chambrier.fr
 
 #### Express
 
-- GET /tp/async (promise puis async/await)
-- GET /tp/sync (blocking)
-- GET /tp/callback (callback)
-- GET /
-- GET /timeout (home avec un timeout)
-- POST /auth/login
-- GET|POST|... /auth/logout
-- GET /auth/profile (info du compte)
-- GET /chat (home du chat)
+- `GET /`
+- `GET /timeout` (home avec un timeout)
+- `GET /tp/async` (promise sans async/await)
+- `GET /tp/await` (promise avec async/await)
+- `GET /tp/sync` (blocking)
+- `GET /tp/callback` (callback)
+- `GET /fibo/:number` (gros calcul)
+
+- `POST /auth/login`
+- `GET|POST|... /auth/logout`
+- `GET /auth/profile` (info du compte)
+- `GET /chat` (home du chat)
 
 #### Websocket
 

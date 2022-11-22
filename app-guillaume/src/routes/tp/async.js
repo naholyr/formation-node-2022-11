@@ -8,5 +8,5 @@ export const tpAsyncHandler = (req, res) => {
 
 export const tpAsyncHandler = async (req, res) => {
   const result = await tpAsyncPromise();
-  return res.send(result);
+  return res.send(result.join(" "));
 };

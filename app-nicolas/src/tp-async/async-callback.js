@@ -1,11 +1,12 @@
 import { readFile } from "node:fs";
 
 export const tpAsyncCallback = (cb) => {
-  let pending = 3;
+  let pending = 0;
   let error = null;
   let contents = [];
 
   const readOneFile = (index, path) => {
+    pending++;
     readFile(path, "utf-8", (err, content) => {
       // already another error
       if (error) return onOneRead();

@@ -5,11 +5,5 @@ export const tpAsyncPromise = () => {
   const content2P = readFile("./src/tp-async/2.txt", "utf-8");
   const content3P = readFile("./src/tp-async/3.txt", "utf-8");
 
-  return content1P.then((content1) => {
-    return content2P.then((content2) => {
-      return content3P.then((content3) => {
-        return content1 + content2 + content3;
-      });
-    });
-  });
+  return Promise.all([content1P, content2P, content3P]);
 };

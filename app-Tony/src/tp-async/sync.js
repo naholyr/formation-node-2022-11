@@ -1,13 +1,11 @@
 import { readFileSync } from "node:fs";
 
-const FILE_1 = "./src/tp-async/1.txt";
-const FILE_2 = "./src/tp-async/2.txt";
-const FILE_3 = "./src/tp-async/3.txt";
+// tpAsyncSync: () => string
 
-export const TpSyncAsync = () => {
-  const content1 = readFileSync(FILE_1, "utf-8");
-  const content2 = readFileSync(FILE_2, "utf-8");
-  const content3 = readFileSync(FILE_3, "utf-8");
-  const result = content1 + content2 + content3;
-  return result;
+export const tpAsyncSync = () => {
+  const content1 = readFileSync("./src/tp-async/1.txt", "utf-8");
+  const content2 = readFileSync("./src/tp-async/2.txt", "utf-8");
+  const content3 = readFileSync("./src/tp-async/3.txt", "utf-8");
+
+  return content1 + content2 + content3;
 };
