@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>Zuper Chat</title>
+  <link rel="stylesheet" href="bare.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <section xx id="app" class="hidden">
+    <h1>Zuper Chat</h1>
+    <div id="user-area">
+      Logged in as <span class="user-name"></span>
+    </div>
+    <card id="login-area">
+      <h2>Authentication required</h2>
+      <form id="login-form">
+        <label>Username</label>
+        <input type="text" placeholder="username" name="username" autocomplete="username">
+        <label>Password</label>
+        <input type="password" placeholder="******" name="password" autocomplete="current-password">
+        <p>
+          <input type="checkbox" name="register" id="checkbox-register"><label for="checkbox-register">Register</label>
+        </p>
+        <p>
+          <button primary>Log in</button>
+        </p>
+      </form>
+    </card>
+    <div id="chat-area">
+      <h2>Chat</h2>
+      <form id="chat-form">
+        <input type="text" placeholder="your message" name="text">
+        <button>Send</button>
+      </form>
+      <ul id="chat-messages">
+      </ul>
+      <script type="text/html" id="template-chat-message">
+        <li>
+          <div>
+            <span class="date"></span>
+            <strong class="username"></strong>
+            <span class="text"></span>
+          </div>
+        </li>
+      </script>
+    </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

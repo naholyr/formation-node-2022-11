@@ -31,7 +31,7 @@ Contact : nicolas@chambrier.fr
 
 #### Express
 
-- `GET /`
+- `GET /` (home statique)
 - `GET /timeout` (home avec un timeout)
 - `GET /tp/async` (promise sans async/await)
 - `GET /tp/await` (promise avec async/await)
@@ -39,14 +39,16 @@ Contact : nicolas@chambrier.fr
 - `GET /tp/callback` (callback)
 - `GET /fibo/:number` (gros calcul)
 
-- `POST /auth/login`
-- `GET|POST|... /auth/logout`
-- `GET /auth/profile` (info du compte)
-- `GET /chat` (home du chat)
+- `POST /auth/login` <- { username, passwor } -> { token }
+- `POST /auth/register` <- { username, password } -> no content
+- `GET /auth/check` <- header Authorization Bearer -> { username }
 
 #### Websocket
 
-TBD
+- < `auth` + { token }
+- > `unauthorized`
+- < `new-message` + { text }
+- > `received-message` + { date, text, author }
 
 #### Commandes npm de l'application
 
