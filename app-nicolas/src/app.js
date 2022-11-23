@@ -40,3 +40,10 @@ app.use("/fibo", requireToken, fiboRouter); // Dangerous: requires login
 app.use("/auth", authRouter);
 
 // CJS: module.exports = { app };
+
+// Cluster demo
+let counter = 0;
+app.get("/counter", (req, res) => {
+  counter++;
+  res.send(`counter: ${counter}`);
+});

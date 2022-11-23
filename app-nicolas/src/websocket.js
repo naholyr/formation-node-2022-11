@@ -1,4 +1,6 @@
 import { Server } from "socket.io";
+import Redis from "ioredis";
+import { createAdapter } from "@socket.io/redis-adapter";
 import { checkToken } from "./token.js";
 
 export const initWebsocket = (httpServer) => {
@@ -60,4 +62,10 @@ export const initWebsocket = (httpServer) => {
       text: "Welcome " + client.user.username,
     });
   });
+
+  // Scalable io.emit:
+  const subClient = new Redis("redis://localhost:6379");
+  const pubClient = new Redis("redis://localhost:6379");
+  const adapter = createAdapter(pubClient, subClient);
+  io.adapter(adapter);
 };

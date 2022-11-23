@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon src/start.js",
+    "dev-cluster": "nodemon src/start-cluster-sticky.js",
     "env": "env",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint src public"
@@ -14,6 +15,7 @@
   "author": "Nicolas Chambrier",
   "license": "ISC",
   "dependencies": {
+    "@socket.io/redis-adapter": "^7.2.0",
     "body-parser": "^1.20.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
@@ -23,6 +25,7 @@
     "lodash": "^4.17.21",
     "mongodb": "^4.12.0",
     "socket.io": "^4.5.3",
+    "sticky-cluster": "^0.3.5",
     "supertest": "^6.3.1"
   },
   "devDependencies": {
