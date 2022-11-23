@@ -4,8 +4,10 @@ import bodyParser from "body-parser";
 import { tpRouter } from "./routes/tp/router.js";
 import { homeHandler } from "./routes/home/home-handler.js";
 import { fiboHandler } from "./routes/fibo/fiboHandler.js";
-import { authHandler } from "./routes/auth/authHandler.js";
 import { loginHandler } from "./routes/auth/loginHandler.js";
+import { checkHandler } from "./routes/auth/checkHandler.js";
+import { requireToken } from "./token-express.js";
+import { registerHandler } from "./routes/auth/registerHandler.js";
 
 // CJS: const app = express();
 export const app = express();
@@ -18,8 +20,8 @@ app.use(express.static("public")).use(bodyParser.json());
 // all routes of "tpRouter" are prefixed by "/tp"
 app.get("/", homeHandler);
 app.get("/fibo/:number", fiboHandler);
-app.post("/auth/register", authHandler);
-app.use("/tp", tpRouter);
+app.post("/auth/register", registerHandler);
 app.post("/auth/login", loginHandler);
-
+app.post("/auth/check", requireToken, checkHandler);
+app.use("/tp", tpRouter);
 // CJS: module.exports = { app };

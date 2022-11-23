@@ -38,16 +38,28 @@
       throw new Error(body.error);
     }
 
-    console.log(body);
-
-    throw new Error("Not implemented");
-
     return body.token;
   };
 
   const fetchCheck = async (token) => {
     // TODO HTTP: POST /auth/check + Authorization header => username
-    return "Toto";
+    const response = await fetch("/auth/check", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    //return "Toto";
+
+    const body = await response.json();
+
+    if (body.error) {
+      throw new Error(body.error);
+    }
+
+    return body.username;
   };
 
   const initSocket = (token) => {
