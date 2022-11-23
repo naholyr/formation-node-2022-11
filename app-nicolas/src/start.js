@@ -1,5 +1,5 @@
 import { server } from "./server.js";
 
-server.listen(3000, () => {
-  console.log("Server listening http://localhost:3000");
+server.listen(process.env.PORT, () => {
+  console.log("Server listening http://localhost:" + process.env.PORT);
 });

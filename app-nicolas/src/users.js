@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { createHash } from "node:crypto";
 
-const client = new MongoClient("mongodb://localhost:27017/chat");
+const client = new MongoClient(process.env.MONGODB);
 
 const Users = client.db().collection("users");
 

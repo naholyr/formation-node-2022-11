@@ -64,8 +64,8 @@ export const initWebsocket = (httpServer) => {
   });
 
   // Scalable io.emit:
-  const subClient = new Redis("redis://localhost:6379");
-  const pubClient = new Redis("redis://localhost:6379");
+  const subClient = new Redis(process.env.REDIS);
+  const pubClient = new Redis(process.env.REDIS);
   const adapter = createAdapter(pubClient, subClient);
   io.adapter(adapter);
 };
