@@ -5,20 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "dev": "nodemon src/server.js",
-    "lint": "eslint src public"
+    "lint": "eslint src public",
+    "env": "env"
   },
   "author": "Guillaume Zahui",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "ioredis": "^5.2.4",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.12.0",
-    "socket.io": "^4.5.3"
+    "supertest": "^6.3.1"
   },
   "devDependencies": {
     "eslint": "^8.28.0",

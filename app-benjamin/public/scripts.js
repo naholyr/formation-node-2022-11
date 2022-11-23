@@ -25,8 +25,24 @@
   };
 
   const fetchLogin = async (username, password) => {
-    // TODO HTTP: POST /auth/login + { username, passwor } => token
-    return "fake token";
+    // TODO HTTP: POST /auth/login + { username, password } => token
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const body = await response.json();
+
+    if (body.error) {
+      throw new Error(body.error);
+    }
+
+    console.log(body);
+
+    throw new Error("Not implemented");
+
+    return body.token;
   };
 
   const fetchCheck = async (token) => {

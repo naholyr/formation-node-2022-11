@@ -13,5 +13,13 @@
     "rules": {
         "no-console": "warn",
         "prettier/prettier": "error"
-    }
+    },
+    "overrides": [
+      {
+        "files": ["**/*.test.js", "**/*.spec.js"],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
 }

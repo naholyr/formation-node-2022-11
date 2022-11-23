@@ -26,6 +26,7 @@ Contact : nicolas@chambrier.fr
 - https://www.passportjs.org/
 - Hosting Heroku & Mongodb: https://www.mongodb.com/developer/how-to/use-atlas-on-heroku/
 - https://socket.io/fr/docs/v4/adapter/
+- https://mswjs.io/docs/api/rest (fake server for testing)
 
 ### Packages
 

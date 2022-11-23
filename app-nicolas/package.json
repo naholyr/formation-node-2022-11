@@ -1,5 +1,6 @@
 {
   "name": "app-nicolas",
+  "private": true,
   "version": "1.0.0",
   "description": "zuper chat",
   "main": "src/index.js",
@@ -7,20 +8,22 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "env": "env",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint src public"
   },
   "author": "Nicolas Chambrier",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "ioredis": "^5.2.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongodb": "^4.12.0",
-    "socket.io": "^4.5.3"
+    "socket.io": "^4.5.3",
+    "supertest": "^6.3.1"
   },
   "devDependencies": {
     "eslint": "^8.28.0",
