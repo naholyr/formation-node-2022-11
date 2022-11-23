@@ -1,5 +1,4 @@
 import { createToken } from "../../token.js";
-import "../../users.js";
 import { checkUser } from "../../users.js";
 
 export const loginHandler = async (req, res) => {

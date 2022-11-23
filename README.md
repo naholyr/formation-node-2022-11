@@ -79,10 +79,10 @@ Contact : nicolas@chambrier.fr
 
 #### Commandes npm de l'application
 
+- Initialisation: `cp .env.sample .env`
 - Commandes standard : voir slides
 - Démarrer en mode "watch" : `npm run dev`
 - Build de production : `npm run build`
-- Debug + mode "watch" : `npm run debugdev`
 - Tests : `npm test`
 
 #### Serveurs
