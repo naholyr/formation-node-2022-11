@@ -9,23 +9,6 @@
   // CLIENT LOGIC TO COMPLETE //
   //////////////////////////////
 
-  const fetchLogin = async (username, password) => {
-    // TODO HTTP: POST /auth/login + { username, password } => token
-    const response = await fetch("/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
-
-    const body = await response.json();
-
-    if (body.error) {
-      throw new Error(body.error);
-    }
-
-    return body.token;
-  };
-
   const fetchRegister = async (username, password) => {
     const response = await fetch("/auth/register", {
       method: "POST",
@@ -39,6 +22,22 @@
 
     const body = await response.json();
     throw new Error(body.error);
+  };
+
+  const fetchLogin = async (username, password) => {
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const body = await response.json();
+
+    if (body.error) {
+      throw new Error(body.error);
+    }
+
+    return body.token;
   };
 
   const fetchCheck = async (token) => {
@@ -58,18 +57,21 @@
 
     return body.username;
   };
-  const initSocket = (token) => {
-    // TODO WS: connect to websocket server
-    socket = "...";
 
-    // TODO WS: send "auth" + { token }
-    // TODO WS: handle "unauthorized"
-    // TODO WS: handle "received-message" + { text, date, author } event
-    appendMessage({ date: "...", text: "...", author: "..." });
+  const initSocket = (token) => {
+    socket = io({ auth: { token } });
+    /*
+    socket.emit('name', ...args)          =>  send event to server
+    socket.on('name', (...args) => ...)   =>  listen event from server
+    */
+
+    socket.on("received-message", (message) => {
+      appendMessage(message);
+    });
   };
 
   const sendMessage = (text) => {
-    // TODO WS: emit "new-message" + { text }
+    socket.emit("new-message", { text });
   };
 
   ////////////////////////////////

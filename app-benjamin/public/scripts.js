@@ -63,13 +63,15 @@
   };
 
   const initSocket = (token) => {
-    // TODO WS: connect to websocket server
-    socket = "...";
+    socket = io({ auth: { token } });
+    /*
+    socket.emit('name', ...args)          =>  send event to server
+    socket.on('name', (...args) => ...)   =>  listen event from server
+    */
 
-    // TODO WS: send "auth" + { token }
-    // TODO WS: handle "unauthorized"
-    // TODO WS: handle "received-message" + { text, date, author } event
-    appendMessage({ date: "...", text: "...", author: "..." });
+    socket.on("received-message", (message) => {
+      appendMessage(message);
+    });
   };
 
   const sendMessage = (text) => {
