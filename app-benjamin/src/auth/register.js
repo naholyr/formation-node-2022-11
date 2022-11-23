@@ -1,5 +1,4 @@
-import "../../users.js";
-import { addUser } from "../../users.js";
+import { addUser } from "../user.js";
 
 export const registerHandler = async (req, res) => {
   const { body } = req;

@@ -5,7 +5,7 @@ const client = new MongoClient("mongodb://localhost:27017/chat");
 
 const Users = client.db().collection("users");
 
-client.options("open", () => {
+client.on("open", () => {
   console.log("Connected to mongodb");
 });
 await client.connect();

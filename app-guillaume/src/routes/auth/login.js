@@ -1,4 +1,5 @@
 import { checkUser } from "../../users.js";
+import { createToken } from "./token.js";
 
 export const loginHandler = async (req, res) => {
   const { body } = req;
@@ -9,7 +10,9 @@ export const loginHandler = async (req, res) => {
       res.status(403).send({ error: "Invalid username or password" });
       return;
     }
-    res.send({ token: undefined, user });
+
+    const token = createToken(body.username);
+    res.send({ token, username: body.username });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }

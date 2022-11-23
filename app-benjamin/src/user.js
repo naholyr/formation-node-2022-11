@@ -20,7 +20,14 @@ export const addUser = async (username, password) => {
 
 export const getUser = async (username) => {};
 
-export const checkUser = async (username, password) => {};
+export const checkUser = async (username, password) => {
+  const foundUser = await Users.findOne({
+    username,
+    password: hashPassword(password),
+  });
+
+  return foundUser;
+};
 
 const hashPassword = (password) => {
   const hash = createHash("sha256");
